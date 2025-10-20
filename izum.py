@@ -799,7 +799,7 @@ class Level4:
         print("Вы приказываете обезьяне: 'УЙДИ ОТСЮДА И НЕ МЕШАЙ МНЕ!'")
         time.sleep(2)
         
-        if random.random() > 0.3:  # 70% шанс успеха
+        if random.random() > 0.3:  
             print("Обезьяна в ужасе отступает и улетает вглубь пещеры!")
             self.monkey_stats["состояние"] = "напугана"
             self.monkey_stats["здоровье"] = 0
@@ -816,11 +816,12 @@ class Level4:
         print(f"\n{BOLD}Вы атакуете крылатую обезьяну!{RESET}")
         time.sleep(2)
         
-        # Расчет урона
+ 
         player_damage = max(5, self.player_stats["атака"] - self.monkey_stats["защита"] // 2)
         monkey_damage = max(10, self.monkey_stats["атака"] - self.player_stats["защита"] // 2)
         
-        # Атака игрока
+ 
+ 
         self.monkey_stats["здоровье"] -= player_damage
         print(f"Вы наносите обезьяне {player_damage} урона!")
         
@@ -829,7 +830,6 @@ class Level4:
             self.level_completed = True
             return False
         
-        # Контратака обезьяны
         print("Обезьяна контратакует!")
         time.sleep(1)
         self.player_stats["здоровье"] -= monkey_damage
@@ -846,7 +846,7 @@ class Level4:
         print(f"\n{BOLD}Вы пытаетесь убежать от обезьяны!{RESET}")
         time.sleep(2)
         
-        escape_chance = 0.4  # Базовый шанс побега
+        escape_chance = 0.4 
         
         if self.monkey_stats["состояние"] in ["отвлечена", "опутана"]:
             escape_chance += 0.3
